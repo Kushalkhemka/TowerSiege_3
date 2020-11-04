@@ -27,4 +27,12 @@ class Box2 extends BaseClass
     }
   }
 
+  
+  score()
+  {
+    if(this.Visibility<0&&this.Visibility>-100)
+    {
+      score++
+    }
+  }
 }
