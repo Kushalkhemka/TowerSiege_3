@@ -27,4 +27,13 @@ class Box3 extends BaseClass
       super.display();
     }
   }
+
+  
+  score()
+  {
+    if(this.Visibility<0&&this.Visibility>-100)
+    {
+      score++
+    }
+  }
 }
