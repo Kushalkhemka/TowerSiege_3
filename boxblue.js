@@ -27,5 +27,15 @@ class Box extends BaseClass
       image(this.image,this.body.position.x,this.body.position.y,this.width,this.height)
       super.display();
     }
+    //console.log(this.Visibility)
+  }
+
+  
+  score()
+  {
+    if(this.Visibility<0&&this.Visibility>-100)
+    {
+      score++
+    }
   }
 }
