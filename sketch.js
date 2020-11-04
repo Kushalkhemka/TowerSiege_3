@@ -182,7 +182,7 @@ function draw() {
 
   //Addiding instructions
   strokeWeight(0);
-  fill("white");
+  fill(txtcolor);
   textSize(22);
   text("Drag the Hexagonal Stone and Release it, to launch it towards the blocks",150,30);
 
