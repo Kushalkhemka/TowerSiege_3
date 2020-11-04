@@ -13,10 +13,13 @@ var block6,block7,block8,block9,block10;
 var block11,block12,block13,block14,block15;
 var block16,block17,block18,block19,block20;
 var block21,block22,block23,block24,block25;
+var score;
 
 function preload()
 {
-
+  bg=color("black");
+  txtcolor=color("black");
+  fetchtime();
 }
 //Setup function
 function setup() {
@@ -26,6 +29,9 @@ function setup() {
   //Creating small engine and world
   engine = Engine.create();
   world = engine.world;
+
+  //Initial value of score
+  score=0;
 
   //first ground
   ground1=new Ground(390+60,310,270,12);
@@ -80,12 +86,15 @@ function setup() {
 
   //constraint
   sling=new SlingShot(pentagon.body,{x:180,y:190})
+
+  
+
 }
 
 function draw() {
 
   //To assign brown background color
-  background(48,6,6); 
+  background(bg); 
   //background(255);
 
   Engine.update(engine);
@@ -142,12 +151,46 @@ function draw() {
   //displaying constraint line
   sling.display();
 
+  //Calling score function for each block
+  block1.score();
+  block2.score();
+  block3.score();
+  block4.score();
+  block5.score();
+  block6.score();
+  block7.score();
+  block8.score();
+  block9.score();
+  block10.score();
+  block11.score();
+  block12.score();
+  block13.score();
+  block14.score();
+  block15.score();
+  block16.score();
+  block17.score(); 
+  block18.score();
+  block19.score();
+  block20.score();
+  block21.score();
+  block22.score();
+  block23.score();
+  block24.score();
+  block25.score();
+
+
 
   //Addiding instructions
   strokeWeight(0);
   fill("white");
   textSize(22);
   text("Drag the Hexagonal Stone and Release it, to launch it towards the blocks",150,30);
+
+  
+  textSize(24);
+  fill(txtcolor)
+  text("Score : "+score,30,360);
+ // console.log(score);
   
 }
 //Mouse drag function to adjust the aim of hexagon
@@ -170,4 +213,21 @@ function keyPressed()
     Matter.Body.setPosition(pentagon.body,{x:100,y:200});
     sling.attacher(pentagon.body);
   }
+}
+
+async function fetchtime()
+{
+    var time=await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+    var data=await time.json();
+    console.log(data);
+    var hour=data.datetime.slice(11,13);
+    if(hour>=6&&hour<=18)
+    {
+      bg=color("white");
+      txtcolor=color("black")
+    }
+    else{
+       bg=color("black")
+       txtcolor=color("white")
+    }
 }
