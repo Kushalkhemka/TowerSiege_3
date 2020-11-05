@@ -223,7 +223,7 @@ async function fetchtime()
     var hour=data.datetime.slice(11,13);
     if(hour>=6&&hour<=18)
     {
-      bg=color("white");
+      bg=color("azure");
       txtcolor=color("black")
     }
     else{
